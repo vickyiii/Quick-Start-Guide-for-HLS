@@ -1,7 +1,8 @@
 # Overview on High-level synthesis technology
 
 说起高层次综合技术（High-level synthesis）的概念，现在有很多初学者简单地把它理解为可以自动把c/c++之类地高级语言直接转换成底层硬件描述语言（RTL）的技术。其实更准确的表述是：由更高抽象度的行为描述生产电路的技术。高层次的概念代表的是硬件描述语言里面较高的抽象层次，随着软件硬件语言的共同发展，高抽象度的行为描述语言来到了C/C++的层级。以下是南加州大学的DANIEL D.GAJSKI教授在1994年出版的期刊时对高层次综合技术的描述[1]：High-level synthesis systems start with an abstract behavioral specification of a digital system and find a register-transfer level structure that realizes the given behavior. 下图揭示了高层次综合工作的基本流程，以及它于传统的RTL综合流程的对比。接下来将对行为描述，行为综合，分析与优化三个主要子流程详细描述。
-![RTL_VS_HLS](./img/RTL_VS_HLS.PNG) 
+
+![RTL_VS_HLS](./img/RTL_VS_HLS.png) 
 
 1. 行为描述
 
@@ -20,16 +21,21 @@
 
 下图简洁明了地介绍了从C语言设计到导出RTL设计过程中，依据HLS库和用户指令进行调度和绑定的过程。
 
+![sch_bind](./img/sch_bind.png)
+
+
 这里我们使用一个非常简单的例子描述一下行为综合的过程
 - Compilation and Transformation 将一个行为描述代码的转化为数据流图DFG 
 
      数据流图由很多数据节点组成，最重要的是表达出了各个节点上数据的依赖关系，这是后面调度和绑定的基础。
      在这个步骤中，代码风格是一个比较关键的因素。HLS在转化过于繁复高层次语言表达的时候，极个别情况会无法识别一些嵌套非常深的软件算法,也会增加编译时间. 所以尽量简洁，逻辑明晰的硬件友好代码会提升开发效率。
-
+![DFG](./img/DFG.png)
 - Scheduling 调度
 
-    在数据流图中，我们看到XY和EF数据之间没有依赖，他们可以选择在同一个Control Step里面并行执行,或者在两个ST里面顺序执行.
+    在数据流图中，我们看到XY和EF数据之间没有依赖，他们可以选择在同一个Control Step里面并行执行,或者在两个CT里面顺序执行.
     这个过程中调度的并行性由HLS编译器，用户指令共同作用影响着，比如编译器会主动发现可以并行的优化点自动优化，也会误以为某些表达式存在数据依赖无法并行优化等，所以仍需要用户加入指令说明情况。 当然追求更高的并行性对资源也有更大的需求，所以并不是一切调度都以最大并行性为目标。
+
+![Control_step](./img/Control_step.png)
 
 - Binding 绑定
 
@@ -37,6 +43,8 @@
     下图基于早期的ALU单元揭示了Binding 的可能性, 将加减法操作映射到寄存器还是ALU模块，呈现了两种不同的方案.
 
     以下是选择了使用一个ALU、两个寄存器、一个乘法器的综合结果。对于既定的调度方案，可以通过行为综合来生成相应的状态机。HLS在行为综合的过程中，除了达到算法的基本功能，更重要的是选择不同的绑定和调度方案在资源、性能、吞吐量等各个指标中做权衡和取舍。
+
+![ALU](./img/ALU.png)
 
 3. 分析和优化
 
@@ -54,6 +62,8 @@
 这些性能指标的行为综合结果都会在HLS工具的报告中指出，开发者需要找出性能瓶颈或者性能过剩的部分。针对循环的优化方式由流水线（pipeline）或展开(unroll). 此外还有指示运算器的并行或共享，指示数组的拆分（partition）和访问调度，指示功能函数的内联（inline）等等。这些优化指令相互作用，需要从全局出发确定优化指令。
 
 当进行详细的优化指令也无法达到预期的指标时，就需要考虑代码本身的优化。这就需要开发者在设计模块（函数、循环等）时灵活运用并行、流水线等架构，并在充分理解行为综合机制的基础上编写更容易生成高效硬件行为描述的代码。
+
+![datapath_control](./img/datapath_control.png)
 
 4. 接口连接
 
@@ -75,8 +85,13 @@
 一个性能优于CPU的优秀的高层次综合设计的HLS C/C++代码可能会很长，甚至和原始代码相比面目全非。类似这样对于一个软件程序员进行常年的HLS C/C++代码的训练并不是可推广和有效率的模式。但是在可定制计算技术的长河中，科学家和研究者们希望无论软硬件工作人员，都只要经过一些基本优化理论的训练就可以通过写软件代码得到优于通用CPU的设计。这样大家才能广泛体会到可定制计算能够带来的好处[4]。
 
 
-参考：
+Reference:
+
 [1] D. D. Gajski and L. Ramachandran, "Introduction to high-level synthesis," in IEEE Design & Test of Computers, vol. 11, no. 4, pp. 44-54, Winter 1994, doi: 10.1109/54.329454.
+
 [2] 天野英晴, FPGA 原理和结构 
+
 [3] High-Level Synthesis - Saraju P. Mohanty http://www.smohanty.org/Presentations/2001/MohantyHLS2001Talk.pdf
+
 [4] aspdac20_keynote.pdf https://ucla.app.box.com/s/l2l1158ze86h38xj5sglgkcrjqz12cxg
+
