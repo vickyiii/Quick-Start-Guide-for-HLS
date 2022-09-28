@@ -1,10 +1,22 @@
-# HLS_blogs_CN
-This is a series of quick strat blogs of Vitis HLS tool in Chinese. 
-It explains the basic concepts you need to understand to use the HLS tool and points out the way to use the official AMD-Xilinx materials.
+# Quick Start Guide for HLS
+
+This is a series of quick start guide of Vitis HLS tool in Chinese. 
+It explains the basic concepts and the most important optimize techniques you need to understand to use the Vitis HLS tool. 
+
+## Outlines:
+
+1. [Overview on High-level synthesis technology]()
+2. [Vitis HLS Process Overview]()
+3. [Managing Interface]()
+4. [Fine-grained Function and Loop Level Parallel Optimization | Unroll & Pipeline]()
+5. [Coarse-grained Task level parallel optimization | Dataflow]()
+6. 
+
+
+## Reference Materials
 
 To help you quickly get started with the Vitis HLS, you can find tutorials and example applications at the following locations:
-
-1. Vitis HLS User Guide (https://docs.xilinx.com/r/en-US/ug1399-vitis-hls/Getting-Started-with-Vitis-HLSs)
+1. Vitis HLS User Guide (https://docs.xilinx.com/r/en-US/ug1399-vitis-hls/Getting-Started-with-Vitis-HLS)
 The offical Vitis HLS user guide including the getting started part and the mathodology guide. All the details about the tool chain can be founded in this guide.
 
 2. Vitis HLS Introductory Examples (https://github.com/Xilinx/Vitis-HLS-Introductory-Examples)

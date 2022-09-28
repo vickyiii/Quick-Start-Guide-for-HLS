@@ -1,6 +1,6 @@
 # Fine-grained Function and Loop Level Parallel Optimization | Unroll & Pipeline
 
-HLS 优化设计的最关键指令有两个：一个是流水线（pipeline）指令，一个是数据流(dataflow)指令。
+HLS 优化设计的最关键指令有两个：一个是流水线[Pipeline]()指令，一个是数据流[Dataflow]()指令。
 正确地使用好这两个指令能够增强算法地并行性，提升吞吐量，降低延迟但是需要遵循一定的代码风格。展开(unroll)指令是只针对for循环的展开指令，和流水线指令关系密切，所以我们放在一起首先我们来看一下这三个指令在Xilinx官方指南中的定义：
 - Unroll :Unroll for-loops to create multiple instances of the loop body and its instructions that can then be scheduled independently.
 Pipeline  : Reduces the initiation interval by allowing the overlapped execution of operations within a loop or function.
