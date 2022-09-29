@@ -8,9 +8,10 @@ It explains the basic concepts and the most important optimize techniques you ne
 1. [Overview on High-level synthesis technology]()
 2. [Vitis HLS Process Overview]()
 3. [Managing Interface]()
-4. [Fine-grained Function and Loop Level Parallel Optimization | Unroll & Pipeline]()
-5. [Coarse-grained Task level parallel optimization | Dataflow]()
-6. 
+4. [Design Methodology]()
+5. [Fine-grained Function and Loop Level Parallel Optimization | Unroll & Pipeline]()
+6. [Coarse-grained Task level parallel optimization | Dataflow]()
+7. 
 
 
 ## Reference Materials
