@@ -5,7 +5,7 @@ It explains the basic concepts and the most important optimize techniques you ne
 
 ## Outlines:
 
-1. [Overview on High-level synthesis technology](./Overview_on_HLS.md）
+1. [Overview on High-level synthesis technology](./Overview_on_HLS.md)
 2. [Vitis HLS Process Overview](./Vitis_HLS_Process.md)
 3. [Design Methodology](./Design_Mathodology.md)
 4. [Defining Interface](./Defining_Interface.md)
