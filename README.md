@@ -5,13 +5,13 @@ It explains the basic concepts and the most important optimize techniques you ne
 
 ## Outlines:
 
-1. [Overview on High-level synthesis technology]()
-2. [Vitis HLS Process Overview]()
-3. [Managing Interface]()
-4. [Design Methodology]()
-5. [Fine-grained Function and Loop Level Parallel Optimization | Unroll & Pipeline]()
-6. [Coarse-grained Task level parallel optimization | Dataflow]()
-7. 
+1. [Overview on High-level synthesis technology](./Overview_on_HLS.md）
+2. [Vitis HLS Process Overview](./Vitis_HLS_Process.md)
+3. [Design Methodology](./Design_Mathodology.md)
+4. [Defining Interface](./Defining_Interface.md)
+5. [Fine-grained Function and Loop Level Parallel Optimization | Unroll & Pipeline](./Unroll_Pipeline.md)
+6. [Coarse-grained Task level parallel optimization | Dataflow](./Dataflow.md)
+7. [Controlling AXI4 Burst Behavior](./AXI_burst.md)
 
 
 ## Reference Materials

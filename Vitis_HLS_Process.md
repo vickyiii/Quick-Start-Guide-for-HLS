@@ -1,6 +1,6 @@
 
 # Vitis HLS Process Overview
-Vitis HLS 基于工程，可包含多个solution（称为“解决方案”）以驱动综合与仿真。每个解决方案均可将 Vivado IP 流程或 Vitis kernel流程设定为目标。基于目标流程，每个解决方案都将指定不同的约束和最优化指令，如 启用 Vivado IP 流程 和 启用 Vitis 内核流程 中所述。如需获取两个流程之间的差异的清晰列表，请参阅 Vivado/Vitis 流程的默认设置。
+Vitis HLS 基于工程，可包含多个solution（称为“解决方案”）以驱动综合与仿真。每个解决方案均可将 Vivado IP 流程或 Vitis kernel流程设定为目标。基于目标流程，每个解决方案都将指定不同的约束和最优化指令，如 启用 [Vivado IP Flow](https://docs.xilinx.com/r/en-US/ug1399-vitis-hls/Interfaces-for-Vivado-IP-Flow) 和 启用 [Vitis Kernel Flow](https://docs.xilinx.com/r/en-US/ug1399-vitis-hls/Interfaces-for-Vitis-Kernel-Flow) 中所述。如需获取两个流程之间的差异的清晰列表，请参阅 Vivado/Vitis 流程的默认设置。
 
 以下提供了典型设计流程中的综合、分析与最优化步骤：
 
@@ -15,7 +15,7 @@ Vitis HLS 基于目标流程、默认工具配置、设计约束和我们指定�
 
 ### C/C++ 代码综合方式如下：
 
-- 顶层函数实参由 Vitis HLS 自动综合到 RTL I/O 端口接口内。如 [定义接口](https://docs.xilinx.com/r/en-US/ug1399-vitis-hls/Defining-Interfaces) 中所述，该工具创建的默认接口取决于目标流程、函数实参的数据类型和方向、默认接口模式以及用户指定的任何 INTERFACE 编译指示或指令（用于手动定义接口）。
+- 顶层函数实参由 Vitis HLS 自动综合到 RTL I/O 端口接口内。如[定义接口](https://docs.xilinx.com/r/en-US/ug1399-vitis-hls/Defining-Interfaces)中所述，该工具创建的默认接口取决于目标流程、函数实参的数据类型和方向、默认接口模式以及用户指定的任何 INTERFACE 编译指示或指令（用于手动定义接口）。
 
 - 顶层 C/C++ 函数的子函数综合到 RTL 设计的层级内的各块中。
     - 最终 RTL 设计包含与原始顶层 C 语言函数层级相对应的模块或实体层级。
