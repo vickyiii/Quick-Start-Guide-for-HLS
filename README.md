@@ -11,8 +11,9 @@ It explains the basic concepts and the most important optimize techniques you ne
 4. [Defining Interface](./Defining_Interface.md)
 5. [Fine-grained Function and Loop Level Parallel Optimization | Unroll & Pipeline](./Unroll_Pipeline.md)
 6. [Coarse-grained Task level parallel optimization | Dataflow](./Dataflow.md)
-7. [Controlling AXI4 Burst Behavior](./AXI_burst.md)
-
+7. [Controlling AXI4 Burst Behavior](./Control_AXI_burst.md)
+7. [Controlling AXI4 Burst Behavior | Trade area for speed](./Area_for_speed.md)
+7. [Controlling AXI4 Burst Behavior](./Control_AXI_burst.md)
 
 ## Reference Materials
 
